@@ -1,0 +1,52 @@
+
+using System;
+
+class MaiorESoma
+{
+    static void Main()
+    {
+        int A, B, C;
+        int maior;
+        int soma;
+
+        Console.Write("Digite o valor de A: ");
+        A = int.Parse(Console.ReadLine());
+
+        Console.Write("Digite o valor de B: ");
+        B = int.Parse(Console.ReadLine());
+
+        Console.Write("Digite o valor de C: ");
+        C = int.Parse(Console.ReadLine());
+
+        // Verificando o maior número
+        if (A > B && A > C)
+        {
+            maior = A;
+        }
+        else if (B > A && B > C)
+        {
+            maior = B;
+        }
+        else
+        {
+            maior = C;
+        }
+
+        // Calculando a soma
+        soma = A + B + C;
+
+        Console.WriteLine("\nMaior valor: " + maior);
+
+        // Verificando se a soma é par ou ímpar
+        if (soma % 2 == 0)
+        {
+            Console.WriteLine("A soma (" + soma + ") é PAR.");
+        }
+        else
+        {
+            Console.WriteLine("A soma (" + soma + ") é ÍMPAR.");
+        }
+
+        Console.ReadKey();
+    }
+}
