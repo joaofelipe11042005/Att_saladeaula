@@ -1,0 +1,26 @@
+using System;
+
+class Exercicio7
+{
+    static void Main()
+    {
+        int numero = LerInteiro("Digite um número inteiro: ");
+
+        if (numero % 3 == 0 && numero % 5 == 0)
+            Console.WriteLine("É múltiplo de 3 e 5.");
+        else
+            Console.WriteLine("Não é múltiplo de 3 e 5.");
+    }
+
+    static int LerInteiro(string msg)
+    {
+        int valor;
+        while (true)
+        {
+            Console.Write(msg);
+            if (int.TryParse(Console.ReadLine(), out valor))
+                return valor;
+            Console.WriteLine("Valor inválido.");
+        }
+    }
+}
