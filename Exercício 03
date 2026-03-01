@@ -1,0 +1,31 @@
+using System;
+
+class Exercicio3
+{
+    static void Main()
+    {
+        int A = LerInteiro("Digite A: ");
+        int B = LerInteiro("Digite B: ");
+        int C = LerInteiro("Digite C: ");
+
+        int R = (int)Math.Pow(A + B, 2);
+        int S = (int)Math.Pow(B + C, 2);
+        int D = R + S;
+
+        Console.WriteLine($"\nR = {R}");
+        Console.WriteLine($"S = {S}");
+        Console.WriteLine($"D = {D}");
+    }
+
+    static int LerInteiro(string msg)
+    {
+        int valor;
+        while (true)
+        {
+            Console.Write(msg);
+            if (int.TryParse(Console.ReadLine(), out valor))
+                return valor;
+            Console.WriteLine("Valor inválido.");
+        }
+    }
+}
