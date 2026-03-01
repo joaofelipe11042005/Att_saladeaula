@@ -1,0 +1,30 @@
+using System;
+
+class Exercicio8
+{
+    static void Main()
+    {
+        int n1 = LerInteiro("Digite o primeiro número: ");
+        int n2 = LerInteiro("Digite o segundo número: ");
+        int n3 = LerInteiro("Digite o terceiro número: ");
+
+        int maior = n1;
+
+        if (n2 > maior) maior = n2;
+        if (n3 > maior) maior = n3;
+
+        Console.WriteLine($"Maior número: {maior}");
+    }
+
+    static int LerInteiro(string msg)
+    {
+        int valor;
+        while (true)
+        {
+            Console.Write(msg);
+            if (int.TryParse(Console.ReadLine(), out valor))
+                return valor;
+            Console.WriteLine("Valor inválido.");
+        }
+    }
+}
