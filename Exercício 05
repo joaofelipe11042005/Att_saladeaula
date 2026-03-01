@@ -1,0 +1,26 @@
+using System;
+
+class Exercicio5
+{
+    static void Main()
+    {
+        int numero = LerInteiro("Digite um número inteiro: ");
+
+        if (numero % 2 == 0)
+            Console.WriteLine("Número PAR.");
+        else
+            Console.WriteLine("Número ÍMPAR.");
+    }
+
+    static int LerInteiro(string msg)
+    {
+        int valor;
+        while (true)
+        {
+            Console.Write(msg);
+            if (int.TryParse(Console.ReadLine(), out valor))
+                return valor;
+            Console.WriteLine("Valor inválido.");
+        }
+    }
+}
