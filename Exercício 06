@@ -1,0 +1,28 @@
+using System;
+
+class Exercicio6
+{
+    static void Main()
+    {
+        int numero = LerInteiro("Digite um número inteiro: ");
+
+        if (numero > 0)
+            Console.WriteLine("Número POSITIVO.");
+        else if (numero < 0)
+            Console.WriteLine("Número NEGATIVO.");
+        else
+            Console.WriteLine("Número é ZERO.");
+    }
+
+    static int LerInteiro(string msg)
+    {
+        int valor;
+        while (true)
+        {
+            Console.Write(msg);
+            if (int.TryParse(Console.ReadLine(), out valor))
+                return valor;
+            Console.WriteLine("Valor inválido.");
+        }
+    }
+}
