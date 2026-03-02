@@ -1,0 +1,33 @@
+using System;
+
+class Exercicio16
+{
+    static void Main()
+    {
+        int n = LerInteiro("Digite um número positivo: ");
+
+        if (n < 1)
+        {
+            Console.WriteLine("Número inválido.");
+            return;
+        }
+
+        Console.WriteLine("Números ímpares:");
+
+        for (int i = 1; i <= n; i += 2)
+            Console.WriteLine(i);
+    }
+
+    static int LerInteiro(string msg)
+    {
+        int valor;
+        while (true)
+        {
+            Console.Write(msg);
+            if (int.TryParse(Console.ReadLine(), out valor))
+                return valor;
+
+            Console.WriteLine("Valor inválido.");
+        }
+    }
+}
