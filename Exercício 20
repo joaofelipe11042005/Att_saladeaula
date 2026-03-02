@@ -1,0 +1,41 @@
+using System;
+
+class Exercicio20
+{
+    static void Main()
+    {
+        int termos = LerInteiro("Quantos termos da sequência Fibonacci deseja? ");
+
+        if (termos <= 0)
+        {
+            Console.WriteLine("Quantidade inválida.");
+            return;
+        }
+
+        long a = 0, b = 1;
+
+        Console.WriteLine("Sequência Fibonacci:");
+
+        for (int i = 1; i <= termos; i++)
+        {
+            Console.WriteLine(a);
+
+            long proximo = a + b;
+            a = b;
+            b = proximo;
+        }
+    }
+
+    static int LerInteiro(string msg)
+    {
+        int valor;
+        while (true)
+        {
+            Console.Write(msg);
+            if (int.TryParse(Console.ReadLine(), out valor))
+                return valor;
+
+            Console.WriteLine("Valor inválido.");
+        }
+    }
+}
