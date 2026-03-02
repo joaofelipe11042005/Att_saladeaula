@@ -1,0 +1,31 @@
+using System;
+
+class Exercicio18
+{
+    static void Main()
+    {
+        int n = LerInteiro("Digite um número positivo: ");
+
+        if (n < 0)
+        {
+            Console.WriteLine("Número inválido.");
+            return;
+        }
+
+        for (int i = n; i >= 0; i--)
+            Console.WriteLine(i);
+    }
+
+    static int LerInteiro(string msg)
+    {
+        int valor;
+        while (true)
+        {
+            Console.Write(msg);
+            if (int.TryParse(Console.ReadLine(), out valor))
+                return valor;
+
+            Console.WriteLine("Valor inválido.");
+        }
+    }
+}
