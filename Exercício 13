@@ -1,0 +1,26 @@
+using System;
+
+class Exercicio13
+{
+    static void Main()
+    {
+        int numero = LerInteiro("Digite um número: ");
+
+        Console.WriteLine($"Tabuada do {numero}:");
+
+        for (int i = 1; i <= 10; i++)
+            Console.WriteLine($"{numero} x {i} = {numero * i}");
+    }
+
+    static int LerInteiro(string msg)
+    {
+        int valor;
+        while (true)
+        {
+            Console.Write(msg);
+            if (int.TryParse(Console.ReadLine(), out valor))
+                return valor;
+            Console.WriteLine("Valor inválido.");
+        }
+    }
+}
