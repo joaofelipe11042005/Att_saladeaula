@@ -1,0 +1,41 @@
+using System;
+
+class Exercicio19
+{
+    static void Main()
+    {
+        int numero = LerInteiro("Digite um número positivo: ");
+
+        if (numero <= 0)
+        {
+            Console.WriteLine("Número inválido.");
+            return;
+        }
+
+        int soma = 0;
+
+        for (int i = 1; i < numero; i++)
+        {
+            if (numero % i == 0)
+                soma += i;
+        }
+
+        if (soma == numero)
+            Console.WriteLine("É número perfeito.");
+        else
+            Console.WriteLine("Não é número perfeito.");
+    }
+
+    static int LerInteiro(string msg)
+    {
+        int valor;
+        while (true)
+        {
+            Console.Write(msg);
+            if (int.TryParse(Console.ReadLine(), out valor))
+                return valor;
+
+            Console.WriteLine("Valor inválido.");
+        }
+    }
+}
