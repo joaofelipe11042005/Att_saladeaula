@@ -1,0 +1,50 @@
+using System;
+
+class Exercicio15
+{
+    static void Main()
+    {
+        int quantidade = LerInteiro("Quantos números deseja informar? ");
+
+        if (quantidade <= 0)
+        {
+            Console.WriteLine("Quantidade inválida.");
+            return;
+        }
+
+        double soma = 0;
+
+        for (int i = 1; i <= quantidade; i++)
+        {
+            soma += LerDouble($"Digite o número {i}: ");
+        }
+
+        double media = soma / quantidade;
+
+        Console.WriteLine($"Média = {media:F2}");
+    }
+
+    static int LerInteiro(string msg)
+    {
+        int valor;
+        while (true)
+        {
+            Console.Write(msg);
+            if (int.TryParse(Console.ReadLine(), out valor))
+                return valor;
+            Console.WriteLine("Valor inválido.");
+        }
+    }
+
+    static double LerDouble(string msg)
+    {
+        double valor;
+        while (true)
+        {
+            Console.Write(msg);
+            if (double.TryParse(Console.ReadLine(), out valor))
+                return valor;
+            Console.WriteLine("Valor inválido.");
+        }
+    }
+}
