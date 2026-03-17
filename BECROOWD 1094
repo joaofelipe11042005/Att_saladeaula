@@ -1,0 +1,43 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int N = int.Parse(Console.ReadLine());
+
+        int total = 0;
+        int coelho = 0;
+        int rato = 0;
+        int sapo = 0;
+
+        for (int i = 0; i < N; i++)
+        {
+            string[] entrada = Console.ReadLine().Split(' ');
+
+            int quantidade = int.Parse(entrada[0]);
+            char tipo = char.Parse(entrada[1]);
+
+            total += quantidade;
+
+            if (tipo == 'C')
+                coelho += quantidade;
+            else if (tipo == 'R')
+                rato += quantidade;
+            else if (tipo == 'S')
+                sapo += quantidade;
+        }
+
+        double percCoelho = (double)coelho / total * 100;
+        double percRato = (double)rato / total * 100;
+        double percSapo = (double)sapo / total * 100;
+
+        Console.WriteLine($"Total: {total} cobaias");
+        Console.WriteLine($"Total de coelhos: {coelho}");
+        Console.WriteLine($"Total de ratos: {rato}");
+        Console.WriteLine($"Total de sapos: {sapo}");
+        Console.WriteLine($"Percentual de coelhos: {percCoelho:F2} %");
+        Console.WriteLine($"Percentual de ratos: {percRato:F2} %");
+        Console.WriteLine($"Percentual de sapos: {percSapo:F2} %");
+    }
+}
