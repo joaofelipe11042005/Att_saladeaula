@@ -1,0 +1,42 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int[] vetor = new int[20];
+
+        int pares = 0;
+        int impares = 0;
+        int maiores50 = 0;
+        int menores7 = 0;
+
+        Console.WriteLine("Digite 20 números inteiros:");
+
+        for (int i = 0; i < 20; i++)
+        {
+            Console.Write($"Número {i + 1}: ");
+            vetor[i] = int.Parse(Console.ReadLine());
+
+            // Verifica par ou ímpar
+            if (vetor[i] % 2 == 0)
+                pares++;
+            else
+                impares++;
+
+            // Verifica maior que 50
+            if (vetor[i] > 50)
+                maiores50++;
+
+            // Verifica menor que 7
+            if (vetor[i] < 7)
+                menores7++;
+        }
+
+        // Exibe os resultados
+        Console.WriteLine($"\nQuantidade de números pares: {pares}");
+        Console.WriteLine($"Quantidade de números ímpares: {impares}");
+        Console.WriteLine($"Quantidade de números maiores que 50: {maiores50}");
+        Console.WriteLine($"Quantidade de números menores que 7: {menores7}");
+    }
+}
