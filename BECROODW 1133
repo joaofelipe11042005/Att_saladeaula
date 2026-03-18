@@ -1,0 +1,21 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int X = int.Parse(Console.ReadLine());
+        int Y = int.Parse(Console.ReadLine());
+
+        int inicio = Math.Min(X, Y);
+        int fim = Math.Max(X, Y);
+
+        for (int i = inicio + 1; i < fim; i++)
+        {
+            if (i % 5 == 2 || i % 5 == 3)
+            {
+                Console.WriteLine(i);
+            }
+        }
+    }
+}
