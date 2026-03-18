@@ -1,0 +1,38 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int[] vetor1 = new int[10];
+        int[] vetor2 = new int[10];
+        int[] somaVetor = new int[10];
+
+        Console.WriteLine("Digite 10 números inteiros para o primeiro vetor:");
+        for (int i = 0; i < 10; i++)
+        {
+            Console.Write($"Vetor1[{i}]: ");
+            vetor1[i] = int.Parse(Console.ReadLine());
+        }
+
+        Console.WriteLine("Digite 10 números inteiros para o segundo vetor:");
+        for (int i = 0; i < 10; i++)
+        {
+            Console.Write($"Vetor2[{i}]: ");
+            vetor2[i] = int.Parse(Console.ReadLine());
+        }
+
+        // Soma os elementos de mesmo índice
+        for (int i = 0; i < 10; i++)
+        {
+            somaVetor[i] = vetor1[i] + vetor2[i];
+        }
+
+        // Mostra o vetor resultante
+        Console.WriteLine("Vetor resultante da soma:");
+        for (int i = 0; i < 10; i++)
+        {
+            Console.WriteLine($"somaVetor[{i}] = {somaVetor[i]}");
+        }
+    }
+}
