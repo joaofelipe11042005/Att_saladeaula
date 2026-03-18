@@ -1,0 +1,41 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int[] vetor = new int[10];
+
+        // Leitura do vetor
+        Console.WriteLine("Digite 10 números inteiros:");
+        for (int i = 0; i < 10; i++)
+        {
+            Console.Write($"Número {i + 1}: ");
+            vetor[i] = int.Parse(Console.ReadLine());
+        }
+
+        // Mostra o vetor original
+        Console.WriteLine("\nVetor original:");
+        for (int i = 0; i < 10; i++)
+        {
+            Console.Write(vetor[i] + " ");
+        }
+        Console.WriteLine();
+
+        // Troca elementos: primeiro com último, segundo com penúltimo, etc.
+        for (int i = 0; i < 10 / 2; i++)
+        {
+            int temp = vetor[i];
+            vetor[i] = vetor[9 - i];
+            vetor[9 - i] = temp;
+        }
+
+        // Mostra o vetor após a troca
+        Console.WriteLine("\nVetor após a inversão:");
+        for (int i = 0; i < 10; i++)
+        {
+            Console.Write(vetor[i] + " ");
+        }
+        Console.WriteLine();
+    }
+}
