@@ -1,0 +1,27 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int[] vetor = new int[10]; // cria um vetor com 10 posições
+        int soma = 0;
+
+        Console.WriteLine("Digite 10 números inteiros:");
+
+        // Leitura dos valores
+        for (int i = 0; i < 10; i++)
+        {
+            Console.Write($"Número {i + 1}: ");
+            vetor[i] = int.Parse(Console.ReadLine());
+        }
+
+        // Somatório dos valores
+        for (int i = 0; i < 10; i++)
+        {
+            soma += vetor[i];
+        }
+
+        Console.WriteLine($"O somatório dos valores é: {soma}");
+    }
+}
