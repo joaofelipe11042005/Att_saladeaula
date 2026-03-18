@@ -1,0 +1,31 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        double[] salarios = new double[10];
+
+        Console.WriteLine("Digite os salários dos 10 funcionários:");
+
+        // Leitura dos salários
+        for (int i = 0; i < 10; i++)
+        {
+            Console.Write($"Salário do funcionário {i + 1}: ");
+            salarios[i] = double.Parse(Console.ReadLine());
+        }
+
+        // Reajuste de 5%
+        for (int i = 0; i < 10; i++)
+        {
+            salarios[i] = salarios[i] * 1.05; // aumento de 5%
+        }
+
+        // Exibe os salários reajustados
+        Console.WriteLine("\nSalários após o reajuste de 5%:");
+        for (int i = 0; i < 10; i++)
+        {
+            Console.WriteLine($"Funcionário {i + 1}: R$ {salarios[i]:F2}");
+        }
+    }
+}
