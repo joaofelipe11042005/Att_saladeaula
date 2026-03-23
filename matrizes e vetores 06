@@ -1,0 +1,92 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        char[,] tabuleiro = new char[3, 3];
+        int jogadas = 0;
+        bool venceu = false;
+
+        // Inicializa o tabuleiro com espaços
+        for (int i = 0; i < 3; i++)
+            for (int j = 0; j < 3; j++)
+                tabuleiro[i, j] = ' ';
+
+        while (jogadas < 9 && !venceu)
+        {
+            Console.Clear();
+            ExibirTabuleiro(tabuleiro);
+
+            char jogador = (jogadas % 2 == 0) ? 'X' : 'O';
+
+            Console.WriteLine($"\nJogador {jogador}, faça sua jogada:");
+
+            Console.Write("Linha (0, 1, 2): ");
+            int linha = int.Parse(Console.ReadLine());
+
+            Console.Write("Coluna (0, 1, 2): ");
+            int coluna = int.Parse(Console.ReadLine());
+
+            // Validação de jogada
+            if (linha < 0 || linha > 2 || coluna < 0 || coluna > 2 || tabuleiro[linha, coluna] != ' ')
+            {
+                Console.WriteLine("Jogada inválida! Pressione qualquer tecla...");
+                Console.ReadKey();
+                continue;
+            }
+
+            tabuleiro[linha, coluna] = jogador;
+            jogadas++;
+
+            venceu = VerificarVitoria(tabuleiro, jogador);
+        }
+
+        Console.Clear();
+        ExibirTabuleiro(tabuleiro);
+
+        if (venceu)
+        {
+            char vencedor = (jogadas % 2 == 1) ? 'X' : 'O';
+            Console.WriteLine($"\nJogador {vencedor} venceu!");
+        }
+        else
+        {
+            Console.WriteLine("\nEmpate!");
+        }
+    }
+
+    static void ExibirTabuleiro(char[,] t)
+    {
+        Console.WriteLine("   0   1   2");
+        for (int i = 0; i < 3; i++)
+        {
+            Console.Write($" {i} ");
+            for (int j = 0; j < 3; j++)
+            {
+                Console.Write($" {t[i, j]} ");
+                if (j < 2) Console.Write("|");
+            }
+            Console.WriteLine();
+            if (i < 2) Console.WriteLine("  ---+---+---");
+        }
+    }
+
+    static bool VerificarVitoria(char[,] t, char j)
+    {
+        // Linhas e colunas
+        for (int i = 0; i < 3; i++)
+        {
+            if ((t[i, 0] == j && t[i, 1] == j && t[i, 2] == j) ||
+                (t[0, i] == j && t[1, i] == j && t[2, i] == j))
+                return true;
+        }
+
+        // Diagonais
+        if ((t[0, 0] == j && t[1, 1] == j && t[2, 2] == j) ||
+            (t[0, 2] == j && t[1, 1] == j && t[2, 0] == j))
+            return true;
+
+        return false;
+    }
+}
