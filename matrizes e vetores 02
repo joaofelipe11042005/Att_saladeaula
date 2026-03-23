@@ -1,0 +1,43 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string[] nomes = new string[10];
+        double[] precos = new double[10];
+
+        // Cadastro dos produtos
+        for (int i = 0; i < 10; i++)
+        {
+            Console.Write($"Digite o nome do {i + 1}º produto: ");
+            nomes[i] = Console.ReadLine();
+
+            Console.Write($"Digite o preço do {i + 1}º produto: ");
+            precos[i] = double.Parse(Console.ReadLine());
+        }
+
+        // Valor para pesquisa
+        Console.Write("\nDigite o valor máximo para pesquisa: ");
+        double valorMax = double.Parse(Console.ReadLine());
+
+        Console.WriteLine("\nProdutos com preço até o valor informado:");
+
+        bool encontrou = false;
+
+        // Pesquisa e exibição
+        for (int i = 0; i < 10; i++)
+        {
+            if (precos[i] <= valorMax)
+            {
+                Console.WriteLine($"Produto: {nomes[i]} | Preço: R$ {precos[i]:F2}");
+                encontrou = true;
+            }
+        }
+
+        if (!encontrou)
+        {
+            Console.WriteLine("Nenhum produto encontrado com esse critério.");
+        }
+    }
+}
